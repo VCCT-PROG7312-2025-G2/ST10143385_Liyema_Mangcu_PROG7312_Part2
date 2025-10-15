@@ -37,7 +37,7 @@ The goal here is to improve communication, engagement, and transparency between 
 3. Build the project (`Ctrl + Shift + B`)  
 4. Run the application (`F5` or ▶ Run button)
 ---
-## 🖼️ Application Screenshots
+## Application Screenshots
 
 Below are preview images showcasing key pages of the **MunicipalForms** web application.
 
@@ -68,3 +68,16 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 ---
 ## Contributors
 - **Developer:** Liyema Mangcu (ST10143385) 
+---
+### Acknowledgments
+---
+After lots of research on city services, and current web development methods, I would like to acknowledge these sources:
+---
+-Bill Wagner (n.d.). C# docs - get started, tutorials, reference. [online] learn.microsoft.com. Available at: https://learn.microsoft.com/en-us/dotnet/csharp/.
+-GordonBooker (2017). Custom C# card view type control. [online] Stack Overflow. Available at: https://stackoverflow.com/questions/45014556/custom-c-sharp-card-view-type-control.
+-Javascript.info. (2019). The Modern JavaScript Tutorial. [online] Available at: https://javascript.info/.
+-Otto, M. (2025). Team. [online] Getbootstrap.com. Available at: https://getbootstrap.com/docs/5.0/about/team/.
+-Uxcel. (n.d.). The best way to learn UX/UI design. [online] Available at: https://app.uxcel.com/glossary/human-interface-guidelines.
+
+---
+
