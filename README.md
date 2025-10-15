@@ -48,8 +48,6 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 ### 🔐 Login Page
 <div align="center">
   <img width="1599" height="764" alt="image" src="https://github.com/user-attachments/assets/20e759e7-7a1f-472a-a5ff-0c9f8bf22a96" />
-       alt="Login Page Screenshot" 
-       width="800" 
   <p><i>The login page allows users to securely access the system using their credentials.</i></p>
 </div>
 
@@ -58,8 +56,6 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 ### 🧭 Dashboard
 <div align="center">
   <img width="1583" height="761" alt="image" src="https://github.com/user-attachments/assets/ebc6dda0-39ba-4333-96e1-7ddcfdfb68fe" />
-       alt="Dashboard Screenshot" 
-       width="800" 
   <p><i>The main dashboard displaying navigation tiles for Reports, Local Events, and User Options.</i></p>
 </div>
 
@@ -68,8 +64,6 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 ### 📅 Local Events & Announcements
 <div align="center">
   <img width="1583" height="761" alt="image" src="https://github.com/user-attachments/assets/4fccf3d9-2c28-4c2d-ae96-4c91f9b3e5eb" />
-       alt="Local Events Page Screenshot" 
-       width="800" 
   <p><i>The Local Events page showcasing community events, with search and recommended features.</i></p>
 </div>
 
