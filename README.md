@@ -16,15 +16,13 @@ The goal here is to improve communication, engagement, and transparency between 
 
 ---
 
-## 🧩 Project Structure
-MunicipalForms/
-├── Controllers/
-├── Models/
-├── Views/
-├── wwwroot/
-│    └── Images/ 
-├── appsettings.json
-└── Program.cs
+## Project Structure
+- `Controllers/` 
+- `Models/` 
+- `Views/`  
+- `wwwroot/` 
+- `appsettings.json` 
+- `Program.cs` 
 ---
 
 ## Setup Instructions
@@ -45,7 +43,7 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 
 ---
 
-### 🔐 Login Page
+### Login Page
 <div align="center">
   <img width="1599" height="764" alt="image" src="https://github.com/user-attachments/assets/20e759e7-7a1f-472a-a5ff-0c9f8bf22a96" />
   <p><i>The login page allows users to securely access the system using their credentials.</i></p>
@@ -53,19 +51,20 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 
 ---
 
-### 🧭 Dashboard
+### Dashboard
 <div align="center">
   <img width="1583" height="761" alt="image" src="https://github.com/user-attachments/assets/ebc6dda0-39ba-4333-96e1-7ddcfdfb68fe" />
-  <p><i>The main dashboard displaying navigation tiles for Reports, Local Events, and User Options.</i></p>
+  <p><i>They will then be shown the main dashboard displaying navigation tiles for Reports, Local Events, and City Updates(TBI).</i></p>
 </div>
 
 ---
 
-### 📅 Local Events & Announcements
+### Local Events & Announcements
 <div align="center">
-  <img width="1583" height="761" alt="image" src="https://github.com/user-attachments/assets/4fccf3d9-2c28-4c2d-ae96-4c91f9b3e5eb" />
+<img width="1581" height="762" alt="image" src="https://github.com/user-attachments/assets/4b124589-8ee8-40e2-8fb2-218ef6c303f2" />
   <p><i>The Local Events page showcasing community events, with search and recommended features.</i></p>
 </div>
 
 ---
-
+## Contributors
+- **Developer:** Liyema Mangcu (ST10143385) 
