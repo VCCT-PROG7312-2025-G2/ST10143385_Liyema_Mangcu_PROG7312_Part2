@@ -83,9 +83,9 @@ After lots of research on city services, and current web development methods, I 
 ---
 While dveloping the mvc website, AI tools were used as additional tools to help me improve and understand the complex design pattern. Even thought these tools offered were used, the developer handled all implementation related tasks
 
-**OpenAI**: OpenAI, 2024. ChatGPT. Available at: https://openai.com [Accessed throughout development].
+**OpenAI**: OpenAI, 2024. ChatGPT. Available at: https://openai.com (Accessed throughout development).
 
-**xAI**. (2023) Grok. Available at: https://grok.x.ai (Accessed: 15 October 2025).
+**xAI**. (2023) Grok. Available at: https://grok.x.ai (Accessed throughout development).
 
 It is my responsibility to understand and validate the final implementations to my project, and that I (Liyema Mangcu) carried out all prompts, requirements, and final code reviews myself. This method made effective use of AI to investigate expert coding patterns and address any technical issues I may have faced.
 
