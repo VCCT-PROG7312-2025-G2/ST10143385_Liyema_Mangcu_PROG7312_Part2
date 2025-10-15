@@ -89,5 +89,6 @@ While dveloping the mvc website, AI tools were used as additional tools to help 
 
 **xAI**. (2023) Grok. Available at: https://grok.x.ai (Accessed: 15 October 2025).
 
+It is my responsibility to understand and validate the final implementations to my project, and that I (Liyema Mangcu) carried out all prompts, requirements, and final code reviews myself. This method made effective use of AI to investigate expert coding patterns and address any technical issues I may have faced.
 
 
