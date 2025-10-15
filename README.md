@@ -70,8 +70,6 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 - **Developer:** Liyema Mangcu (ST10143385)
 - **Youtube Link:** https://youtu.be/nHJNwOGiQWQ
 ---
-### Acknowledgments
----
 ## Acknowledgements
 
 After lots of research on city services, and current web development methods, I would like to acknowledge these sources:
