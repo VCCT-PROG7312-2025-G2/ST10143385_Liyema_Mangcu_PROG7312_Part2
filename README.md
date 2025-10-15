@@ -71,13 +71,20 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 ---
 ### Acknowledgments
 ---
+## 🙏 Acknowledgements
+
 After lots of research on city services, and current web development methods, I would like to acknowledge these sources:
----
--Bill Wagner (n.d.). C# docs - get started, tutorials, reference. [online] learn.microsoft.com. Available at: https://learn.microsoft.com/en-us/dotnet/csharp/.
--GordonBooker (2017). Custom C# card view type control. [online] Stack Overflow. Available at: https://stackoverflow.com/questions/45014556/custom-c-sharp-card-view-type-control.
--Javascript.info. (2019). The Modern JavaScript Tutorial. [online] Available at: https://javascript.info/.
--Otto, M. (2025). Team. [online] Getbootstrap.com. Available at: https://getbootstrap.com/docs/5.0/about/team/.
--Uxcel. (n.d.). The best way to learn UX/UI design. [online] Available at: https://app.uxcel.com/glossary/human-interface-guidelines.
+
+- **Bill Wagner** (n.d.). *C# Documentation — Get Started, Tutorials, Reference.* [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/)  
+- **GordonBooker** (2017). *Custom C# Card View Type Control.* [Stack Overflow](https://stackoverflow.com/questions/45014556/custom-c-sharp-card-view-type-control)  
+- **The Modern JavaScript Tutorial** (2019). [JavaScript.info](https://javascript.info/)  
+- **Mark Otto** (2025). *Bootstrap Team.* [GetBootstrap.com](https://getbootstrap.com/docs/5.0/about/team/)  
+- **Uxcel** (n.d.). *The Best Way to Learn UX/UI Design.* [Uxcel Glossary](https://app.uxcel.com/glossary/human-interface-guidelines)
 
 ---
+While dveloping the mvc website, AI tools were used as additional tools to help me improve and understand the complex design pattern. Even thought these tools offered were used, the developer handled all implementation related tasks
+
+**OpenAI**: OpenAI, 2024. ChatGPT. Available at: https://openai.com [Accessed throughout development].
+
+xAI. (2023) Grok. Available at: https://grok.x.ai (Accessed: 15 October 2025).
 
