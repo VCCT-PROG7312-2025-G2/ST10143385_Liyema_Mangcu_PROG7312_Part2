@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MunicipalForms.Models.Report>
+
+<h2>All Submitted Reports</h2>
+<ul class="list-group">
+    @foreach (var r in Model)
+    {
+        <li class="list-group-item">
+            <strong>@r.Category</strong> - @r.Description (@r.Location)
+            @if (!string.IsNullOrEmpty(r.AttachmentPath))
+            {
+                <br />
+                <a href="@r.AttachmentPath" target="_blank">View Attachment</a>
+            }
+        </li>
+    }
+</ul>

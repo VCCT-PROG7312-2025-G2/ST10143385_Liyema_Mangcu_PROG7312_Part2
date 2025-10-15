@@ -1,0 +1,27 @@
+100% progress bar
+
+        // Optional file (not counted in denominator)
+        const hasFile = document.querySelector('input[type="file"]').files.length > 0;
+
+        // Calculate progress: 3 required fields = 100%, file is extra
+        const progress = Math.min((filled / 3) * 100, 100);
+        const progressBar = document.getElementById('progressBar');
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+        progressBar.innerText = `${progress.toFixed(0)}% Complete`;
+
+        const encouragement = document.getElementById('encouragement');
+        if (progress === 100) {
+            encouragement.innerText = hasFile
+                ? "Great job! Your report with attachment is ready to submit."
+                : "Great job! Your report is complete and ready to submit.";
+        } else if (progress > 0) {
+            encouragement.innerText = "Keep going—you're helping improve our community!";
+        } else {
+            encouragement.innerText = "";
+        }
+    };
+
+    document.querySelectorAll('input, select, textarea').forEach(el => el.addEventListener('input', updateProgress));
+    document.querySelector('input[type="file"]').addEventListener('change', updateProgress);
+});

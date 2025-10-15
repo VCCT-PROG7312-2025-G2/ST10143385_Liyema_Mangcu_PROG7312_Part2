@@ -1,0 +1,35 @@
+﻿@model MunicipalForms.Models.User
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="landing-container">
+    <div class="login-form fade-in-drop">
+        <h2 class="login-title">Register</h2>
+        <p class="login-subtitle">Create an account to report issues and track requests.</p>
+
+        <form asp-action="Register" method="post" class="form-body">
+            <div class="form-group">
+                <label>Email Address</label>
+                <input asp-for="Email" class="form-control" placeholder="Enter your email" required />
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" required />
+            </div>
+
+            <button type="submit" class="btn-login">Register</button>
+
+            @if (ViewBag.Error != null)
+            {
+                <p class="error">@ViewBag.Error</p>
+            }
+
+            <div class="register-link">
+                <span>Already have an account?</span>
+                <a href="/Account/Login" class="link">Login here</a>
+            </div>
+        </form>
+    </div>
+</div>

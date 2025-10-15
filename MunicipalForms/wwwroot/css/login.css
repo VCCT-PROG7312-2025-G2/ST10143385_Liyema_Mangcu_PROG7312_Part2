@@ -1,0 +1,215 @@
+﻿:root {
+    --primary: #00695c;
+    --primary-light: #26a69a;
+    --bg: #f1f5f9;
+    --text-dark: #263238;
+    --white: #fff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+    --transition: 0.4s ease;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.landing-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.login-form {
+    background: var(--white);
+    width: 400px;
+    padding: 40px 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 20px var(--shadow);
+    transform: translateY(-100px);
+    opacity: 0;
+    animation: dropIn 0.8s ease forwards;
+}
+
+@keyframes dropIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.login-title {
+    text-align: center;
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #546e7a;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        font-size: 0.9rem;
+        color: var(--text-dark);
+        margin-bottom: 6px;
+    }
+
+.form-control {
+    padding: 10px 12px;
+    border: 1px solid #cfd8dc;
+    border-radius: var(--radius);
+    width: 100%;
+    transition: 0.2s;
+}
+
+    .form-control:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.1);
+    }
+
+.btn-login {
+    background: var(--primary);
+    color: var(--white);
+    width: 100%;
+    border: none;
+    padding: 12px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+    .btn-login.alt {
+        background: var(--white);
+        color: var(--primary);
+        border: 2px solid var(--primary);
+    }
+
+    .btn-login:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+    }
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #455a64;
+    font-size: 0.9rem;
+}
+
+.link {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+.background-blur {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/background.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+    .background-blur::before {
+        content: none !important;
+    }
+
+    .background-blur > * {
+        position: relative;
+        z-index: 1;
+    }
+
+body {
+    background: none;
+}
+
+.landing-container {
+    position: relative;
+    z-index: 2;
+}
+
+.login-form {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+    .login-form:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Drop in animation for the login and regster forms*/
+
+.fade-in-drop {
+    animation: fadeInDrop 1s ease forwards;
+}
+
+@keyframes fadeInDrop {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-login {
+    background: var(--primary);
+    color: var(--white);
+    width: 100%;
+    border: none;
+    padding: 12px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+    .btn-login.alt {
+        background: var(--white);
+        color: var(--primary);
+        border: 2px solid var(--primary);
+    }
+
+    .btn-login:hover {
+        background: var(--primary-light);
+    }
+
+.login-title {
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}

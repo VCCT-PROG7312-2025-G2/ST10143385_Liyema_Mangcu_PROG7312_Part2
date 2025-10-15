@@ -1,0 +1,86 @@
+﻿@model IEnumerable<MunicipalForms.Models.EventModel>
+
+@{
+    ViewData["Title"] = "Local Events & Announcements";
+    var categories = ViewBag.Categories as IEnumerable<string>;
+    var recommendations = ViewBag.Recommendations as IEnumerable<MunicipalForms.Models.EventModel>;
+}
+
+<div class="events-page container py-5">
+    <div class="mb-4">
+        <a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-primary back-btn">
+            <i class="bi bi-arrow-left-circle"></i> Back to Dashboard
+        </a>
+    </div>
+    <div class="events-header text-center mb-5">
+        <h1> Local Events & Announcements</h1>
+        <p class="lead">Stay updated with what’s happening around your community</p>
+    </div>
+	<!-- Search Bar and filter option -->
+    <form method="get" class="search-bar row g-3 justify-content-center mb-5">
+        <div class="col-md-4">
+            <select name="category" class="form-select shadow-sm">
+                <option value="">All Categories</option>
+                @foreach (var cat in categories)
+                {
+                    var selected = (ViewBag.SelectedCategory as string) == cat ? "selected" : "";
+                    <option value="@cat" selected="@selected">@cat</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-3">
+            <input type="date" name="date" class="form-control shadow-sm" value="@ViewBag.SelectedDate" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-gradient w-100">Search 🔍</button>
+        </div>
+    </form>
+
+    <div class="row g-4">
+        @foreach (var ev in Model)
+        {
+            <div class="col-md-4">
+                <div class="event-card">
+                    <div class="event-content">
+                        <h5>@ev.Title</h5>
+                        <p class="desc">@ev.Description</p>
+                        <div class="details">
+                            <p><i class="bi bi-geo-alt-fill text-danger"></i> @ev.Location</p>
+                            <p><i class="bi bi-calendar-event text-primary"></i> @ev.Date.ToString("MMMM dd, yyyy")</p>
+                        </div>
+                        <span class="badge category">@ev.Category</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!--recommendations for the userswhen they try filter-->
+    <div class="recommended mt-5 pt-4">
+        <h3 class="text-center mb-4">💡 Recommended for You</h3>
+        <div class="row g-4">
+            @foreach (var rec in recommendations)
+            {
+                <div class="col-md-4">
+                    <div class="event-card recommended-card">
+                        <div class="event-content">
+                            <h5>@rec.Title</h5>
+                            <p class="desc">@rec.Description</p>
+                            <div class="details">
+                                <p><i class="bi bi-geo-alt-fill text-success"></i> @rec.Location</p>
+                                <p><i class="bi bi-calendar-check text-success"></i> @rec.Date.ToString("MMMM dd, yyyy")</p>
+                            </div>
+                            <span class="badge category">@rec.Category</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="~/css/events.css" />
+}
+
