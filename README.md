@@ -86,5 +86,7 @@ While dveloping the mvc website, AI tools were used as additional tools to help 
 
 **OpenAI**: OpenAI, 2024. ChatGPT. Available at: https://openai.com [Accessed throughout development].
 
-xAI. (2023) Grok. Available at: https://grok.x.ai (Accessed: 15 October 2025).
+**xAI**. (2023) Grok. Available at: https://grok.x.ai (Accessed: 15 October 2025).
+
+
 
