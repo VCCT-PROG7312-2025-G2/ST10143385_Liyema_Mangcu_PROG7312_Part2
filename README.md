@@ -71,7 +71,7 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 ---
 ### Acknowledgments
 ---
-## 🙏 Acknowledgements
+## Acknowledgements
 
 After lots of research on city services, and current web development methods, I would like to acknowledge these sources:
 
