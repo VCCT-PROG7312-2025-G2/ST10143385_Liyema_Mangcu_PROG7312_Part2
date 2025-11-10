@@ -1,0 +1,109 @@
+﻿@model IEnumerable<MunicipalForms.Models.ServiceRequest>
+@{
+    ViewData["Title"] = "Service Request Status";
+}
+<div class="service-page container py-5">
+    <!-- Changed to service-page to match Events' class for shared styling -->
+    <div class="mb-4">
+        <a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-primary back-btn">
+            <i class="bi bi-arrow-left-circle"></i> Back to Dashboard
+        </a>
+    </div>
+    <div class="service-header text-center mb-5">
+        <!-- Matched to events-header -->
+        <h1 class="fw-bold">Service Request Status</h1>
+        <p class="lead text-muted">Track and monitor your submitted municipal service requests.</p>
+    </div>
+    <!-- Search and Filter (matched to Events' search-bar) -->
+    <form method="get" class="search-bar row g-3 justify-content-center mb-5">
+        <div class="col-md-4">
+            <div class="input-group shadow-sm">
+                <input type="text" id="searchInput" name="search" class="form-control" placeholder="Search by ID or Category..." value="@ViewBag.SelectedSearch" />
+                <button class="btn btn-outline-secondary" type="button" id="clearSearch">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <select id="categoryFilter" name="category" class="form-select shadow-sm">
+                <option value="">All Categories</option>
+                @foreach (var category in Model.Select(r => r.Category).Distinct())
+                {
+                    var selected = (ViewBag.SelectedCategory as string) == category ? "selected" : "";
+                    <option value="@category" selected="@selected">@category</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-gradient w-100">Search 🔍</button>
+        </div>
+    </form>
+    <!-- Service Requests List (using row g-4 like Events for grid feel) -->
+    <div id="serviceList" class="row g-4">
+        <!-- Changed to row g-4 for similarity -->
+        @foreach (var req in Model)
+        {
+            <div class="col-md-4 service-card" data-category="@req.Category.ToLower()" data-id="@req.Id">
+                <div class="event-card h-100">
+                    <!-- Reused event-card class for styling similarity -->
+                    <div class="event-content">
+                        <!-- Reused for consistency -->
+                        <h5 class="text-primary fw-bold">#@req.Id - @req.Category</h5>
+                        <p class="desc text-dark">@req.Description</p>
+                        <div class="details">
+                            <p><i class="bi bi-geo-alt text-muted"></i> @req.Location</p>
+                        </div>
+                        <span class="badge bg-@(
+                              req.Status == MunicipalForms.Models.RequestStatus.Completed ? "success" :
+                              req.Status == MunicipalForms.Models.RequestStatus.InProgress ? "warning text-dark" : "secondary"
+                                                )">
+                        @req.Status
+                    </span>
+                    <span class="badge bg-info text-dark">@req.Priority</span>
+                    <a href="/Service/Track/@req.Id" class="btn btn-gradient w-100 mt-3">
+                        <!-- Moved inside content, added mt-3 for spacing -->
+                        View Details <i class="bi bi-arrow-right-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                }
+    </div>
+    <!-- Optional: Add a "Recommended" section like Events if you have logic for it -->
+    <!-- <div class="recommended mt-5 pt-4">
+        <h3 class="text-center mb-4">Recommended Requests</h3>
+        <div class="row g-4">
+            // Add foreach for recommendations here
+        </div>
+    </div> -->
+</div>
+@section Scripts {
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const categoryFilter = document.getElementById("categoryFilter");
+        const clearSearch = document.getElementById("clearSearch");
+        const cards = document.querySelectorAll(".service-card");
+        function filterCards() {
+            const searchValue = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value.toLowerCase();
+            cards.forEach(card => {
+                const cardCategory = card.dataset.category;
+                const cardId = card.dataset.id;
+                const matchesSearch = cardId.includes(searchValue) || cardCategory.includes(searchValue);
+                const matchesCategory = selectedCategory === "" || cardCategory === selectedCategory;
+                card.style.display = matchesSearch && matchesCategory ? "block" : "none";
+            });
+        }
+        searchInput.addEventListener("input", filterCards);
+        categoryFilter.addEventListener("change", filterCards);
+        clearSearch.addEventListener("click", () => {
+            searchInput.value = "";
+            categoryFilter.value = "";
+            filterCards();
+        });
+    </script>
+}
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="~/css/service.css" />
+}

@@ -1,45 +1,38 @@
+﻿using MunicipalForms.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// ✅ Register the repository BEFORE builder.Build()
+builder.Services.AddSingleton<ServiceRepository>();
+
+// ✅ Optional: allow big file uploads
 builder.Services.Configure<IISServerOptions>(options =>
 {
-    options.MaxRequestBodySize = int.MaxValue; // Allow big files
+    options.MaxRequestBodySize = int.MaxValue;
 });
 
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.Limits.MaxRequestBodySize = long.MaxValue;
 });
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ✅ Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.Run();
-
-if (builder.Environment.IsDevelopment())
+else
 {
     app.UseDeveloperExceptionPage(); // shows detailed errors in browser
 }
 
+// ✅ Global error handler (before app.Run)
 app.Use(async (context, next) =>
 {
     try
@@ -54,3 +47,15 @@ app.Use(async (context, next) =>
         await context.Response.WriteAsync("Unexpected server error: " + ex.Message);
     }
 });
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Dashboard}/{id?}");
+
+app.Run();
