@@ -19,14 +19,7 @@ namespace MunicipalForms.Controllers
             return View(requests);
         }
 
-        public IActionResult Track(int id)
-        {
-            var request = _repo.GetById(id);
-            if (request == null)
-                return NotFound();
-
-            return View(request);
-        }
+        public IActionResult All() => View();
 
         [HttpGet]
         public IActionResult Create() => View();
