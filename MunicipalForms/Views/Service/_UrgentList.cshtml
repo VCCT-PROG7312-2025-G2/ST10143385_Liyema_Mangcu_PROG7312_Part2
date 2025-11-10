@@ -1,0 +1,17 @@
+﻿@model IEnumerable<MunicipalForms.Models.ServiceRequest>
+
+<div class="list-group">
+    @foreach (var r in Model)
+    {
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <strong>#@r.Id</strong> — @r.Category<br />
+                <small class="text-muted">@r.Description</small>
+            </div>
+            <div class="text-end">
+                <span class="badge bg-primary">P:@r.Priority</span><br />
+                <small class="text-muted">@r.Status</small>
+            </div>
+        </div>
+    }
+</div>

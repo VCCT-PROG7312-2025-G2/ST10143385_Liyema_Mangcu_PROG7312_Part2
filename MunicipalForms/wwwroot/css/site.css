@@ -8,31 +8,32 @@
     }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    margin-bottom: 60px;
-}
-
+/* Base HTML + Body setup */
 html, body {
-    height: 100%;
+    height: auto;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: #f8f9fa;
+    margin-bottom: 60px;
 }
 
-/* Joburg City image for background */
+/* Background image for Login/Register/Dashboard */
 .background-image {
     background: url('/images/municipality-bg.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -49,3 +50,11 @@ body {
         content: none !important;
     }
 
+/* Wrapper for pages to allow scroll */
+.main-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2rem;
+}

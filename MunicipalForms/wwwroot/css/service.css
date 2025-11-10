@@ -1,0 +1,304 @@
+﻿/* ============================= */
+/* SERVICE PAGE (updated to match Events styling) */
+/* ============================= */
+
+/* GLOBAL / resets */
+html, body {
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f5fb;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* avoid horizontal scroll flashes */
+}
+
+/* Make sure common wrapper containers do not clip sticky/fixed children */
+.container, .main, .dashboard-main, .service-page {
+    overflow: visible !important;
+}
+
+/* Container styling adopted from Events */
+.service-page {
+    background: #f9fbff;
+    border-radius: 15px;
+    padding: 120px 40px 40px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+/* Header like Events */
+.service-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    .service-header h1 {
+        font-weight: 700;
+        color: #0d6efd;
+        font-size: 2.2rem;
+    }
+
+    .service-header p {
+        color: #555;
+    }
+
+/* Search bar like Events */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 15px 10px;
+    border-radius: 12px;
+    background: #f9fbff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    position: relative;
+    z-index: 1;
+}
+
+    .search-bar select,
+    .search-bar input {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        padding: 10px 14px;
+        min-width: 180px;
+    }
+
+        .search-bar select:focus,
+        .search-bar input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 8px rgba(13, 110, 253, 0.3);
+        }
+
+/* Button styles */
+.btn-gradient {
+    background: linear-gradient(90deg, #0d6efd, #4dabf7);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px; /* Reduced padding for smaller button */
+    font-size: 0.9rem; /* Slightly smaller font for cleaner look */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(13, 110, 253, 0.3);
+    }
+
+/* Card styles (reused from Events for consistency, added outline) */
+.event-card {
+    background: white;
+    border: 1px solid #e0e0e0; /* Lighter outline for cleaner look */
+    border-radius: 12px; /* Slightly smaller radius for cleaner edges */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Lighter shadow for minimalism */
+    transition: all 0.3s ease;
+    overflow: hidden;
+    padding: 15px; /* Reduced padding for cleaner, more compact feel */
+    position: relative;
+}
+
+    .event-card:hover {
+        transform: translateY(-4px); /* Softer hover lift */
+        box-shadow: 0 6px 16px rgba(13, 110, 253, 0.15); /* Lighter hover shadow */
+        border-color: #0d6efd; /* Optional: Subtle color change on hover */
+    }
+
+.event-content h5 {
+    font-weight: 600;
+    color: #0d6efd;
+    margin-bottom: 8px; /* Adjusted spacing */
+    font-size: 1.1rem; /* Slightly smaller for cleaner text */
+}
+
+.event-content .desc {
+    color: #666; /* Softer text color */
+    font-size: 0.9rem; /* Smaller font for cleaner read */
+    margin: 0 0 10px 0;
+}
+
+.event-content .details p {
+    margin: 2px 0;
+    font-size: 0.85rem; /* Smaller for details */
+    color: #777;
+}
+
+.badge {
+    margin-right: .5rem;
+    font-weight: 500; /* Lighter weight */
+    text-transform: none;
+    border-radius: 6px; /* Smaller radius */
+    padding: 4px 8px; /* Smaller padding for cleaner badges */
+    font-size: 0.75rem;
+    position: relative; /* Removed absolute positioning for better flow */
+    top: auto;
+    right: auto;
+}
+
+/* Back button like Events */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    border-radius: 10px;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+}
+
+    .back-btn:hover {
+        background-color: #0d6efd;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+/* Responsive adjustments like Events */
+@media (max-width: 768px) {
+    .service-page {
+        padding: 100px 20px 20px 20px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-gradient {
+        width: 100%;
+    }
+}
+
+/* Scroll handling: Use body scroll for natural flow, no internal max-height */
+html, body {
+    height: auto;
+    overflow-y: auto;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.service-page {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Original service.css elements (merged and cleaned up) */
+/* ----------------------------- */
+/* PAGE / CONTENT area           */
+/* ----------------------------- */
+
+/* overall card area container */
+#serviceList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+    width: 100%;
+    margin-bottom: 3rem; /* breathing room at bottom */
+}
+
+/* each card wrapper */
+.service-card {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* New styles for Track.cshtml to make it consistent and styled */
+
+/* Track container - make it card-like and centered */
+.track-container {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto; /* Center it */
+}
+
+/* Track header */
+.track-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    .track-header h2 {
+        font-weight: 600;
+        color: #0d6efd;
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .track-header p {
+        color: #666;
+        font-size: 1rem;
+    }
+
+/* Track details - list-like with cleaner spacing */
+.track-details {
+    margin-bottom: 20px;
+}
+
+.track-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0; /* Subtle divider */
+}
+
+    .track-item strong {
+        color: #333;
+        font-weight: 500;
+    }
+
+    .track-item span {
+        color: #666;
+        text-align: right;
+    }
+
+/* Status badge - reuse similar to index badges */
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-inprogress {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-pending { /* Assuming pending or similar */
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+/* Back link - style like back-btn */
+.track-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+    .track-back:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }

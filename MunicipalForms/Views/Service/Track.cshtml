@@ -1,0 +1,42 @@
+﻿@model MunicipalForms.Models.ServiceRequest
+
+<div class="track-container">
+    <div class="track-header">
+        <h2>Service Request #@Model.Id</h2>
+        <p class="text-muted">@Model.Category</p>
+    </div>
+
+    <div class="track-details">
+        <div class="track-item">
+            <strong>Status:</strong>
+            <span class="status-badge status-@Model.Status.ToString().ToLower()">
+                @Model.Status
+            </span>
+        </div>
+        <div class="track-item">
+            <strong>Description:</strong>
+            <span>@Model.Description</span>
+        </div>
+        <div class="track-item">
+            <strong>Location:</strong>
+            <span>@Model.Location</span>
+        </div>
+        <div class="track-item">
+            <strong>Priority:</strong>
+            <span>@Model.Priority</span>
+        </div>
+        <div class="track-item">
+            <strong>Submitted At:</strong>
+            <span>@Model.SubmittedAt.ToString("f")</span>
+        </div>
+    </div>
+
+    <a href="/Service/Index" class="track-back">
+        ← Back to Services
+    </a>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="~/css/service.css" />
+}

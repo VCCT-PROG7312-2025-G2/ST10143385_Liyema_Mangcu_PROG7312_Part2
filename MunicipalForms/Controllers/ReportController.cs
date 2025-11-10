@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MunicipalForms.Data;
 using MunicipalForms.Models;
 using System.IO;
 
@@ -6,18 +7,28 @@ namespace MunicipalForms.Controllers
 {
     public class ReportController : Controller
     {
-        // Linked list for all the users submitted reports
+        private readonly ServiceRepository _serviceRepo;
+
+        // ✅ Inject the ServiceRepository (registered as Singleton in Program.cs)
+        public ReportController(ServiceRepository serviceRepo)
+        {
+            _serviceRepo = serviceRepo;
+        }
+
+        // ✅ Show all reports
         public IActionResult Index()
         {
             var reports = ReportLinkedList.GetReports();
             return View(reports);
         }
 
+        // ✅ Display the Create form
         public IActionResult Create()
         {
             return View();
         }
 
+        // ✅ Handle POST form submission
         [HttpPost]
         public IActionResult Create(string location, string category, string description, IFormFile AttachmentPath)
         {
@@ -29,7 +40,7 @@ namespace MunicipalForms.Controllers
                 {
                     Console.WriteLine($"Uploading file: {AttachmentPath.FileName}, Size: {AttachmentPath.Length} bytes");
 
-                    // Some validation for the user's attachment: 5MB limit
+                    // Validation: max 5MB
                     if (AttachmentPath.Length > 5 * 1024 * 1024)
                     {
                         Console.WriteLine("File too large, max 5MB.");
@@ -38,9 +49,7 @@ namespace MunicipalForms.Controllers
 
                     var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Uploads");
                     if (!Directory.Exists(uploadsFolder))
-                    {
                         Directory.CreateDirectory(uploadsFolder);
-                    }
 
                     var fileName = $"{DateTime.Now.Ticks}_{Path.GetFileName(AttachmentPath.FileName)}";
                     var filePath = Path.Combine(uploadsFolder, fileName);
@@ -54,6 +63,7 @@ namespace MunicipalForms.Controllers
                     Console.WriteLine($"File saved to: {mediaPath}");
                 }
 
+                // ✅ Create and store report
                 var report = new Report
                 {
                     Location = location,
@@ -64,9 +74,21 @@ namespace MunicipalForms.Controllers
                 };
 
                 ReportLinkedList.AddReport(report);
-                Console.WriteLine($"Report created: {location}, {category}");
+                Console.WriteLine($"✅ Report added to linked list: {category} - {location}");
 
-       
+                // ✅ Also create a corresponding service request entry
+                var newRequest = new ServiceRequest
+                {
+                    Category = category,
+                    Description = description,
+                    Location = location,
+                    Priority = 2, // Normal priority
+                    Status = RequestStatus.Pending
+                };
+                _serviceRepo.Add(newRequest);
+                Console.WriteLine($"✅ Service request created (ID: {newRequest.Id})");
+
+                // ✅ Return JSON to frontend for display
                 return Json(new
                 {
                     success = true,
@@ -79,7 +101,7 @@ namespace MunicipalForms.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine($"❌ Error creating report: {ex.Message}");
                 return Json(new { success = false, message = ex.Message });
             }
         }
