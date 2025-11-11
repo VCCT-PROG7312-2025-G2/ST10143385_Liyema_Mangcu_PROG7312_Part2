@@ -44,6 +44,11 @@
                 <a href="/Home/Dashboard" class="btn btn-outline-secondary w-50">Back</a>
                 <button type="submit" class="btn btn-primary w-50">Submit Report</button>
             </div>
+            <div class="text-center mt-3">
+                <a asp-controller="Report" asp-action="Index" class="btn btn-success w-100">
+                    View All Reports
+                </a>
+            </div>
         </form>
 
         <!-- CONFIRMATION SECTION -->
@@ -51,8 +56,7 @@
             <h4 class="text-success mb-3 fw-bold">Submitted Reports</h4>
             <div id="confirmationDetails" class="mb-3"></div>
             <div class="d-flex gap-2">
-                <button id="btnNewReport" class="btn btn-primary w-50">Submit Another Report</button>
-                <a href="/Service/Index" class="btn btn-outline-secondary w-50">View Service Requests</a>
+                <button id="btnNewReport" class="btn btn-primary w-100">Submit Another Report</button>
             </div>
         </div>
     </div>
@@ -65,9 +69,8 @@
             <h3 class="text-success mb-3 fw-bold">Success!</h3>
             <p>Your report has been submitted successfully.</p>
             <div id="uploadedFilePreview" class="mb-3"></div>
-            <div class="d-flex justify-content-around mt-3">
-                <button id="btnGreat" class="btn btn-success">Great!</button>
-                <a href="/Service/Index" class="btn btn-outline-secondary">View Service Requests</a>
+            <div class="mt-3">
+                <button id="btnGreat" class="btn btn-success w-100">Submit Another Report</button>
             </div>
         </div>
     </div>
@@ -96,9 +99,9 @@
             inputs.forEach(id => {
                 if (document.getElementById(id).value.trim() !== "") filled++;
             });
-            const percent = (filled / inputs.length) * 100;
+            let percent = (filled / inputs.length) * 100;
             progressBar.style.width = percent + "%";
-            progressBar.innerText = Math.round(percent) + "%";               // ← FIXED TYPO
+            progressBar.innerText = Math.round(percent) + "%";
             progressMessage.innerText = filled > 0 ? messages[filled - 1] : "Let’s get started";
         }
 
@@ -188,21 +191,25 @@
             });
         });
 
-        // "Great!" → Go to Service Requests
+        // "Submit Another Report" (Modal)
         document.getElementById("btnGreat").addEventListener("click", () => {
             modal.hide();
-            window.location.href = "/Service/Index";
+            resetForm();
         });
 
-        // "Submit Another Report" → Reset form
+        // "Submit Another Report" (Confirmation)
         document.getElementById("btnNewReport").addEventListener("click", () => {
+            resetForm();
+        });
+
+        function resetForm() {
             form.reset();
             form.style.display = "block";
             confirmationSection.style.display = "none";
             progressBar.style.width = "0%";
-            progressBar.innerText = "0%";                     // ← FIXED
+            progressBar.innerText = "0%";
             progressMessage.innerText = "Let’s get started";
-            updateProgress();                                 // ← Re-run to clear any leftover %
-        });
+            updateProgress();
+        }
     </script>
 }

@@ -1,15 +1,48 @@
 ﻿@model IEnumerable<MunicipalForms.Models.Report>
-<h2>All Submitted Reports</h2>
-<ul class="list-group">
-    @foreach (var r in Model)
-    {
-        <li class="list-group-item">
-            <strong>@r.Category</strong> - @r.Description (@r.Location)
-            @if (!string.IsNullOrEmpty(r.AttachmentPath))
+@{
+    ViewData["Title"] = "All Reports";
+}
+
+<div class="container py-5">
+    <div class="card shadow-lg border-0 p-4 mx-auto" style="max-width:650px; border-radius:16px;">
+        <h2 class="text-center mb-4 text-primary fw-bold">Submitted Reports</h2>
+
+        @if (Model != null && Model.Any())
+        {
+            int i = 1;
+            foreach (var r in Model)
             {
-                <br />
-                <a href="@r.AttachmentPath" target="_blank">View Attachment</a>
+                <div class="card mb-3 shadow-sm border-0" style="border-radius:10px;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary">Report @i</h5>
+                        <p><strong>Location:</strong> @r.Location</p>
+                        <p><strong>Category:</strong> @r.Category</p>
+                        <p><strong>Description:</strong> @r.Description</p>
+                        <p><strong>Submitted At:</strong> @r.SubmittedAt.ToString("yyyy-MM-dd HH:mm:ss")</p>
+
+                        @if (!string.IsNullOrEmpty(r.AttachmentPath))
+                        {
+                            <a href="@r.AttachmentPath" target="_blank" class="btn btn-outline-primary btn-sm mt-2">
+                                View Attachment
+                            </a>
+                        }
+                    </div>
+                </div>
+                i++;
             }
-        </li>
-    }
-</ul>
+        }
+        else
+        {
+            <p class="text-center text-muted">No reports found.</p>
+        }
+
+        <div class="mt-4 d-flex gap-2">
+            <a asp-action="Create" asp-controller="Report" class="btn btn-primary w-50">
+                Back to Form
+            </a>
+            <a asp-action="Create" asp-controller="Report" class="btn btn-primary w-50">
+                Submit Another Report
+            </a>
+        </div>
+    </div>
+</div>
