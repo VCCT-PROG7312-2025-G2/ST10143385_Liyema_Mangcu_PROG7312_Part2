@@ -52,13 +52,6 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 - **Visual Studio 2022** — Development environment
 ---
 
-### Login Page
-<div align="center">
-  <img width="1599" height="764" alt="image" src="https://github.com/user-attachments/assets/20e759e7-7a1f-472a-a5ff-0c9f8bf22a96" />
-  <p><i>The login page allows users to securely access the system using their credentials.</i></p>
-</div>
-
----
 
 ### Dashboard
 <div align="center">
