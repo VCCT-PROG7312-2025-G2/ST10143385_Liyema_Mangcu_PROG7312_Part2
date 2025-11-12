@@ -42,21 +42,29 @@ The goal here is to improve communication, engagement, and transparency between 
 Below are preview images showcasing key pages of the **MunicipalForms** web application.
 
 ---
-
-### Login Page
-<div align="center">
-  <img width="1599" height="764" alt="image" src="https://github.com/user-attachments/assets/20e759e7-7a1f-472a-a5ff-0c9f8bf22a96" />
-  <p><i>The login page allows users to securely access the system using their credentials.</i></p>
-</div>
-
 ---
+
+## 💡 Technologies Used
+- **ASP.NET Core MVC (C#)** — Main web framework  
+- **Entity Framework Core (EF)** — Data management and interaction layer  
+- **HTML5, CSS3, JavaScript, Bootstrap 5** — Front-end structure and styling  
+- **Razor Pages** — View rendering for MVC  
+- **Visual Studio 2022** — Development environment
+---
+
 
 ### Dashboard
 <div align="center">
-  <img width="1583" height="761" alt="image" src="https://github.com/user-attachments/assets/ebc6dda0-39ba-4333-96e1-7ddcfdfb68fe" />
+  <img width="1579" height="775" alt="image" src="https://github.com/user-attachments/assets/f3efd39f-f9a8-4c6b-9c5e-9014c5b6e669" />
   <p><i>They will then be shown the main dashboard displaying navigation tiles for Reports, Local Events, and City Updates(TBI).</i></p>
 </div>
 
+---
+### Submit Report
+<div align="center">
+<img width="1125" height="771" alt="image" src="https://github.com/user-attachments/assets/726309da-c453-4ec5-a999-6dd777b2fbfd" />
+  <p><i>The submit Report allows for the user to submit an issue</i></p>
+</div>
 ---
 
 ### Local Events & Announcements
@@ -66,9 +74,18 @@ Below are preview images showcasing key pages of the **MunicipalForms** web appl
 </div>
 
 ---
+
+### Service Requests
+<div align="center">
+  <img width="1498" height="778" alt="image" src="https://github.com/user-attachments/assets/4925aeba-c722-4840-af4a-c56e668eee8e" />
+  <img width="1305" height="365" alt="image" src="https://github.com/user-attachments/assets/47cc794a-1a23-4a78-a56f-29071a34a792" />
+  <p><i>The Service Requests page allows users to view, track, and manage submitted municipal requests.</i></p>
+</div>
+
+---
 ## Contributors
 - **Developer:** Liyema Mangcu (ST10143385)
-- **Youtube Link:** https://youtu.be/nHJNwOGiQWQ
+- **Youtube Link:** https://youtu.be/1-oTsQBYtwc
 ---
 ## Acknowledgements
 
