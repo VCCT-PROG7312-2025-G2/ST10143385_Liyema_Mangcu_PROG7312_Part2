@@ -47,14 +47,13 @@ namespace MunicipalForms.Data
             }
         }
 
-        // ✅ Get all service requests
+        // everything below follows CRUD methods for managing servic requests
         public IEnumerable<ServiceRequest> GetAll() => _requests;
 
-        // ✅ Get one by Id
+ 
         public ServiceRequest GetById(int id) =>
             _requests.FirstOrDefault(r => r.Id == id);
 
-        // ✅ Add a new request
         public void Add(ServiceRequest request)
         {
             request.Id = _requests.Count > 0 ? _requests.Max(r => r.Id) + 1 : 1;
@@ -62,7 +61,6 @@ namespace MunicipalForms.Data
             _requests.Add(request);
         }
 
-        // ✅ Update an existing request
         public void Update(ServiceRequest request)
         {
             var existing = GetById(request.Id);
@@ -75,8 +73,7 @@ namespace MunicipalForms.Data
                 existing.Priority = request.Priority;
             }
         }
-
-        // ✅ Delete a request
+      
         public void Delete(int id)
         {
             var request = GetById(id);

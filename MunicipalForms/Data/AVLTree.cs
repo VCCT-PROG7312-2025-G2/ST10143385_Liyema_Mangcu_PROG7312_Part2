@@ -4,15 +4,17 @@ using MunicipalForms.Models;
 
 namespace MunicipalForms.Data
 {
+    // The node class used by the AVL tree
     internal class AVLNode
     {
-        public int Key;
-        public ServiceRequest Value;
-        public AVLNode Left, Right;
-        public int Height;
+        public int Key;                         // a unique key used for ordering, for example ServiceRequest ID
+        public ServiceRequest Value;            // Stored data
+        public AVLNode Left, Right;             // Child nodes
+        public int Height;                      // The height of the node which is used for balancing
         public AVLNode(int k, ServiceRequest v) { Key = k; Value = v; Height = 1; }
     }
 
+    // This is a self-balancing AVL Tree used for efficient insert or search by ID
     public class AVLTree
     {
         private AVLNode? root;
@@ -30,13 +32,11 @@ namespace MunicipalForms.Data
             node.Height = 1 + Math.Max(GetHeight(node.Left), GetHeight(node.Right));
             int balance = GetBalance(node);
 
-            // LL
+
+            // perform rotations to maintain AVL balance
             if (balance > 1 && key < node.Left!.Key) return RightRotate(node);
-            // RR
             if (balance < -1 && key > node.Right!.Key) return LeftRotate(node);
-            // LR
             if (balance > 1 && key > node.Left!.Key) { node.Left = LeftRotate(node.Left); return RightRotate(node); }
-            // RL
             if (balance < -1 && key < node.Right!.Key) { node.Right = RightRotate(node.Right); return LeftRotate(node); }
 
             return node;
@@ -78,6 +78,7 @@ namespace MunicipalForms.Data
             return null;
         }
 
+        // return all the requests in sorted order
         public List<ServiceRequest> InOrder()
         {
             var list = new List<ServiceRequest>();
@@ -94,3 +95,5 @@ namespace MunicipalForms.Data
         }
     }
 }
+// Balancing and rotation logic adapted from GeeksforGeeks (2024).
+// Source: https://www.geeksforgeeks.org/avl-tree-set-1-insertion/

@@ -10,7 +10,8 @@ public class BinarySearchTree<T> where T : IComparable<T>
     }
 
     private Node root;
-    public void Insert(T value) { /* standard BST insert */ }
+    // BST insert which can be exteneded for ordering
+    public void Insert(T value) { }
     public T Search(T value)
     {
         Node current = root;
@@ -24,7 +25,8 @@ public class BinarySearchTree<T> where T : IComparable<T>
             else
                 current = current.Right;
         }
-        // Not found: throw or return default
         return default!;
     }
 }
+
+//  https://www.tutorialspoint.com/data_structures_algorithms/binary_search_tree.htm

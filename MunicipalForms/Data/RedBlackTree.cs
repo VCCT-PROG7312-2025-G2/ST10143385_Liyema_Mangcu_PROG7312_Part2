@@ -29,7 +29,7 @@ namespace MunicipalForms.DataStructures
     public class RedBlackTree<T> where T : IComparable<T>
     {
         private RedBlackNode<T> root;
-        private RedBlackNode<T> nil; // Sentinel node
+        private RedBlackNode<T> nil; 
 
         public RedBlackTree()
         {
@@ -154,7 +154,7 @@ namespace MunicipalForms.DataStructures
             InsertFixup(z);
         }
 
-        // Transplant (helper for delete)
+        // helper for delete
         private void Transplant(RedBlackNode<T> u, RedBlackNode<T> v)
         {
             if (u.Parent == nil)
@@ -166,7 +166,7 @@ namespace MunicipalForms.DataStructures
             v.Parent = u.Parent;
         }
 
-        // Delete Fixup
+        // delete fixup
         private void DeleteFixup(RedBlackNode<T> x)
         {
             while (x != root && x.Color == NodeColor.Black)
@@ -278,7 +278,7 @@ namespace MunicipalForms.DataStructures
                 DeleteFixup(x);
         }
 
-        // Helper: Search
+        // helper search
         private RedBlackNode<T> Search(RedBlackNode<T> node, T data)
         {
             while (node != nil && data.CompareTo(node.Data) != 0)
@@ -291,7 +291,7 @@ namespace MunicipalForms.DataStructures
             return node;
         }
 
-        // Helper: Minimum
+        // helper minimum
         private RedBlackNode<T> Minimum(RedBlackNode<T> node)
         {
             while (node.Left != nil)
@@ -299,7 +299,7 @@ namespace MunicipalForms.DataStructures
             return node;
         }
 
-        // Example: InOrder Traversal (for testing)
+        // meant for testing 
         public void InOrderTraversal(Action<T> action)
         {
             InOrderTraversal(root, action);
@@ -316,3 +316,6 @@ namespace MunicipalForms.DataStructures
         }
     }
 }
+
+// Red-Black Tree algorithm based on Cormen et al. (2009)
+// https://www.geeksforgeeks.org/dsa/introduction-to-red-black-tree/

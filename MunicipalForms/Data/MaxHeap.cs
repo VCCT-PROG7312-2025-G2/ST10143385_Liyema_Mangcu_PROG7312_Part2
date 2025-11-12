@@ -20,6 +20,7 @@ namespace MunicipalForms.DataStructures
             HeapifyUp(heap.Count - 1);
         }
 
+        // removes and returns the maximum element from the heap
         public T ExtractMax()
         {
             if (heap.Count == 0)
@@ -32,6 +33,7 @@ namespace MunicipalForms.DataStructures
             return max;
         }
 
+        // Returns  the top element without removing it
         public T PeekMax()
         {
             if (heap.Count == 0)
@@ -39,6 +41,7 @@ namespace MunicipalForms.DataStructures
             return heap[0];
         }
 
+        // restore the heap upwards
         private void HeapifyUp(int index)
         {
             while (index > 0)
@@ -56,6 +59,7 @@ namespace MunicipalForms.DataStructures
             }
         }
 
+        // restore the heap downwards 
         private void HeapifyDown(int index)
         {
             int leftChild = 2 * index + 1;

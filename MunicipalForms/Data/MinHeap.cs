@@ -4,6 +4,7 @@ using MunicipalForms.Models;
 
 namespace MunicipalForms.Data
 {
+    // MinHeap prioritizes the smallest pritority value 
     public class MinHeap
     {
         private readonly List<ServiceRequest> _heap;
@@ -13,6 +14,7 @@ namespace MunicipalForms.Data
             _heap = new List<ServiceRequest>();
         }
 
+        // insert new request and reorder based on its priority
         public int Count => _heap.Count;
 
         public void Insert(ServiceRequest request)
@@ -21,6 +23,7 @@ namespace MunicipalForms.Data
             HeapifyUp(_heap.Count - 1);
         }
 
+        // extract and remove the service request with the highest priority
         public ServiceRequest ExtractMin()
         {
             if (_heap.Count == 0)
@@ -33,6 +36,7 @@ namespace MunicipalForms.Data
             return min;
         }
 
+        // everything below helps maintain the correct order 
         private void HeapifyUp(int index)
         {
             while (index > 0)
@@ -78,3 +82,5 @@ namespace MunicipalForms.Data
         }
     }
 }
+
+// Min Heap structure and operations adapted from GeeksforGeeks (2024).

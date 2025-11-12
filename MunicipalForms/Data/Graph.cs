@@ -4,11 +4,15 @@ using System.Linq;
 
 namespace MunicipalForms.Data
 {
+    // weighted edge between two nodes
     public class Edge { public string U, V; public int Weight; public Edge(string u, string v, int w) { U = u; V = v; Weight = w; } }
+    // undirected graph with adjacency list
     public class Graph
     {
         private readonly Dictionary<string, List<(string neighbor, int weight)>> adj = new();
+        // adds a new node if it doesn't exist
         public void AddNode(string id) { if (!adj.ContainsKey(id)) adj[id] = new List<(string, int)>(); }
+        // Adds a new node if it doesn't exist
         public void AddEdge(string u, string v, int weight = 1, bool undirected = true)
         {
             AddNode(u); AddNode(v);
@@ -46,7 +50,7 @@ namespace MunicipalForms.Data
             foreach (var (v, _) in adj[u])
                 if (!visited.Contains(v)) DFSRec(v, visited, result);
         }
-        // Prim MST (returns edges)
+        // returns edges
         public List<Edge> PrimMST(string start)
         {
             var mst = new List<Edge>();
@@ -70,10 +74,10 @@ namespace MunicipalForms.Data
         }
         public IEnumerable<string> Nodes() => adj.Keys;
 
-        // New: Kruskal MST
+        //Kruskal MST
         public List<Edge> KruskalMST()
         {
-            // Collect unique edges (since undirected, avoid duplicates)
+            // collect unique edges to avoid duplicates)
             var edges = new List<Edge>();
             var seen = new HashSet<(string, string)>();
             foreach (var u in adj.Keys)
@@ -89,10 +93,9 @@ namespace MunicipalForms.Data
                 }
             }
 
-            // Sort edges by weight
+            // sort the edges by weight
             edges.Sort((a, b) => a.Weight.CompareTo(b.Weight));
 
-            // Union-Find
             var uf = new UnionFind(adj.Keys.ToList());
 
             var mst = new List<Edge>();
@@ -108,7 +111,7 @@ namespace MunicipalForms.Data
         }
     }
 
-    // New: UnionFind class for strings
+    // union find class for strings
     public class UnionFind
     {
         private Dictionary<string, string> parent;
@@ -128,7 +131,7 @@ namespace MunicipalForms.Data
         public string Find(string p)
         {
             if (parent[p] != p)
-                parent[p] = Find(parent[p]); // Path compression
+                parent[p] = Find(parent[p]); 
             return parent[p];
         }
 
@@ -137,9 +140,8 @@ namespace MunicipalForms.Data
             string rootP = Find(p);
             string rootQ = Find(q);
             if (rootP == rootQ)
-                return false; // Cycle
+                return false; 
 
-            // Union by rank
             if (rank[rootP] < rank[rootQ])
                 parent[rootP] = rootQ;
             else if (rank[rootP] > rank[rootQ])
@@ -153,3 +155,5 @@ namespace MunicipalForms.Data
         }
     }
 }
+// https://www.geeksforgeeks.org/graph-and-its-representations/
+// https://www.geeksforgeeks.org/dsa/graph-data-structure/
